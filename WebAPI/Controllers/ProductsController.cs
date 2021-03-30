@@ -44,7 +44,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
 
         }
-        [HttpPost("add")]
+        [HttpPost("add")]//parantez içersi istege yönelik değişebilir
         public IActionResult Add(Product product)
         {
             var result = _productService.Add(product);
