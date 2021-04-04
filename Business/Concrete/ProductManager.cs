@@ -79,11 +79,11 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Update(Product product)
         {
-            //IResult result = BusinessRules.Run(CheckIfProductCountOfCategoryCorrect(product.CategoryId), CheckIfProductNameExists(product.ProductName));
-            //if (result != null)
-            //{
-            //    return result;
-            //}
+            IResult result = BusinessRules.Run(CheckIfProductCountOfCategoryCorrect(product.CategoryId), CheckIfProductNameExists(product.ProductName));
+            if (result != null)
+            {
+                return result;
+            }
             _productDal.Update(product);
             return new SuccessResult(Messages.ProductUpdated);
         }
